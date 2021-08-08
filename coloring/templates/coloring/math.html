@@ -1,9 +1,71 @@
 {% load static %}
+<!-- This is where the operations take place -->
 <!DOCTYPE html>
 <html>
+<p>
+    <span id = "Minutes">0</span>
+    :
+    <span id = "Seconds">00</span>
+</p>
+
+<script>
+const str = window.location.href.toString();
+const arr = str.split("?")[1].split("&");
+var conditions = {
+    minutes: "0",
+    seconds: "00",
+    option: "blank"
+};
+for (i in arr) {
+    var curr = arr[i].split("=");
+    conditions[curr[0]] = curr[1]
+}
+conditions["minutes"] = parseInt(conditions["minutes"])
+conditions["seconds"] = parseInt(conditions["seconds"])
+var minute = document.getElementById("Minutes")
+var second = document.getElementById("Seconds")
+var numeralMinutes = conditions["minutes"]
+var numeralSeconds = conditions["seconds"]
+var displayedMinutes = conditions["minutes"].toString()
+var displayedSeconds = conditions["seconds"].toString()
+if (numeralSeconds < 10) {
+    displayedSeconds = "0" + displayedSeconds 
+}
+minute.textContent = displayedMinutes
+second.textContent = displayedSeconds
+var interval = setInterval(function() {
+    // When time runs out
+    if (numeralMinutes == 0 & numeralSeconds == 0) {
+        clearInterval(interval);
+        // Do something here
+    }
+    // Update numeral variables
+    else if (numeralSeconds == 0) {
+        numeralMinutes = numeralMinutes - 1;
+        numeralSeconds = 59;
+    }
+    else {
+        numeralSeconds = numeralSeconds - 1;
+    }
+    // Update displayed variables
+    displayedMinutes = numeralMinutes.toString()
+    displayedSeconds = numeralSeconds.toString()
+    if (numeralSeconds < 10) {
+        displayedSeconds = "0" + displayedSeconds 
+    }   
+    // Update visuals
+    minute.textContent = displayedMinutes
+    second.textContent = displayedSeconds   
+}, 1000);
+</script>
+
+
+
+<!-- Send to right page -->
 <button onclick="location.href='http://localhost:8000/coloring/correct/'">
     Right
 </button>
+<!-- Send to wrong page -->
 <button onclick="location.href='http://localhost:8000/coloring/incorrect/'">
     Wrong
 </button>
