@@ -14,7 +14,8 @@ const arr = str.split("?")[1].split("&");
 var conditions = {
     minutes: "0",
     seconds: "00",
-    option: "blank"
+    option: "blank",
+    difficulty: 1
 };
 for (i in arr) {
     var curr = arr[i].split("=");
@@ -22,6 +23,8 @@ for (i in arr) {
 }
 conditions["minutes"] = parseInt(conditions["minutes"])
 conditions["seconds"] = parseInt(conditions["seconds"])
+conditions["difficulty"] = parseInt(conditions["difficulty"])
+console.log(conditions)
 var minute = document.getElementById("Minutes")
 var colon = document.getElementById("colon")
 var second = document.getElementById("Seconds")
