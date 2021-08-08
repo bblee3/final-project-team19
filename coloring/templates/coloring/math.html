@@ -4,7 +4,7 @@
 <html>
 <p>
     <span id = "Minutes">0</span>
-    :
+    <span id = "colon"> : </span>
     <span id = "Seconds">00</span>
 </p>
 
@@ -23,40 +23,50 @@ for (i in arr) {
 conditions["minutes"] = parseInt(conditions["minutes"])
 conditions["seconds"] = parseInt(conditions["seconds"])
 var minute = document.getElementById("Minutes")
+var colon = document.getElementById("colon")
 var second = document.getElementById("Seconds")
-var numeralMinutes = conditions["minutes"]
-var numeralSeconds = conditions["seconds"]
-var displayedMinutes = conditions["minutes"].toString()
-var displayedSeconds = conditions["seconds"].toString()
-if (numeralSeconds < 10) {
-    displayedSeconds = "0" + displayedSeconds 
+// If the user set infinity as condition
+if (conditions["option"] == "infinity") {
+    minute.textContent = "∞";
+    colon.textContent = "";
+    second.textContent = "";
 }
-minute.textContent = displayedMinutes
-second.textContent = displayedSeconds
-var interval = setInterval(function() {
-    // When time runs out
-    if (numeralMinutes == 0 & numeralSeconds == 0) {
-        clearInterval(interval);
-        // Do something here
-    }
-    // Update numeral variables
-    else if (numeralSeconds == 0) {
-        numeralMinutes = numeralMinutes - 1;
-        numeralSeconds = 59;
-    }
-    else {
-        numeralSeconds = numeralSeconds - 1;
-    }
-    // Update displayed variables
-    displayedMinutes = numeralMinutes.toString()
-    displayedSeconds = numeralSeconds.toString()
+// if user set time as condition
+else {
+    var numeralMinutes = conditions["minutes"]
+    var numeralSeconds = conditions["seconds"]
+    var displayedMinutes = conditions["minutes"].toString()
+    var displayedSeconds = conditions["seconds"].toString()
     if (numeralSeconds < 10) {
         displayedSeconds = "0" + displayedSeconds 
-    }   
-    // Update visuals
+    }
     minute.textContent = displayedMinutes
-    second.textContent = displayedSeconds   
-}, 1000);
+    second.textContent = displayedSeconds
+    var interval = setInterval(function() {
+        // When time runs out
+        if (numeralMinutes == 0 & numeralSeconds == 0) {
+            clearInterval(interval);
+            // Do something here
+        }
+        // Update numeral variables
+        else if (numeralSeconds == 0) {
+            numeralMinutes = numeralMinutes - 1;
+            numeralSeconds = 59;
+        }
+        else {
+            numeralSeconds = numeralSeconds - 1;
+        }
+        // Update displayed variables
+        displayedMinutes = numeralMinutes.toString()
+        displayedSeconds = numeralSeconds.toString()
+        if (numeralSeconds < 10) {
+            displayedSeconds = "0" + displayedSeconds 
+        }   
+        // Update visuals
+        minute.textContent = displayedMinutes
+        second.textContent = displayedSeconds   
+    }, 1000);
+}
 </script>
 
 
