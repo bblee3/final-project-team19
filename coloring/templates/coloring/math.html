@@ -2,11 +2,26 @@
 <!-- This is where the operations take place -->
 <!DOCTYPE html>
 <html>
+<!-- The timer shown -->
 <p>
     <span id = "Minutes">0</span>
     <span id = "colon"> : </span>
     <span id = "Seconds">00</span>
 </p>
+<!-- The input operators -->
+<div id="inputs">
+
+</div>
+
+<!-- The operations -->
+<div>
+    <button id = plus> + </button>
+    <button id = minus> - </button>
+    <button id = multiply> x </button>
+    <button id = divide> ÷ </button>
+    <button id = open> ( </button>
+    <button id = close> ) </button>
+</div>
 
 <script>
 const str = window.location.href.toString();
@@ -24,17 +39,17 @@ for (i in arr) {
 conditions["minutes"] = parseInt(conditions["minutes"])
 conditions["seconds"] = parseInt(conditions["seconds"])
 conditions["difficulty"] = parseInt(conditions["difficulty"])
-console.log(conditions)
 var minute = document.getElementById("Minutes")
 var colon = document.getElementById("colon")
 var second = document.getElementById("Seconds")
-// If the user set infinity as condition
+
+// If the user sets infinity as condition
 if (conditions["option"] == "infinity") {
     minute.textContent = "∞";
     colon.textContent = "";
     second.textContent = "";
 }
-// if user set time as condition
+// if user sets time as condition
 else {
     var numeralMinutes = conditions["minutes"]
     var numeralSeconds = conditions["seconds"]
@@ -70,6 +85,154 @@ else {
         second.textContent = displayedSeconds   
     }, 1000);
 }
+// Insert numbers/inputs based on difficulty
+var usersCurrentResult = {
+};
+// var inputTotal = 0;
+// var numTotal = 0;
+var total = 0;
+const allNumbers = [];
+
+var input = document.getElementById("inputs");
+var btn = document.createElement("button");
+btn.id = "slot" + total;
+total = total + 1;
+btn.style.height = "20px";
+btn.style.width = "20px";
+input.appendChild(btn)
+usersCurrentResult[btn.id] = "";
+
+var numVal = Math.round(Math.random()*50)+1;
+allNumbers.push(numVal.toString())
+var num = document.createElement("span");
+num.id = "slot" + total;
+total = total + 1;
+num.style.height = "20px";
+num.style.width = "20px";
+num.style.fontSize = "large"
+num.innerText = "  " + numVal + "  "
+input.appendChild(num)
+usersCurrentResult[num.id] = numVal.toString();
+for (i = 0; i < conditions["difficulty"]; i++) {
+    btn = document.createElement("button");
+    btn.id = "slot" + total;
+    total = total + 1;
+    btn.style.height = "20px";
+    btn.style.width = "20px";
+    input.appendChild(btn)
+    usersCurrentResult[btn.id] = "";
+
+    btn = document.createElement("button");
+    btn.id = "slot" + total;
+    total = total + 1;
+    btn.style.height = "20px";
+    btn.style.width = "20px";
+    input.appendChild(btn)
+    usersCurrentResult[btn.id] = "";
+
+    numVal = Math.round(Math.random()*50)+1;
+    allNumbers.push(numVal.toString())
+    num = document.createElement("span");
+    num.id = "slot" + total;
+    total = total + 1;
+    num.style.height = "20px";
+    num.style.width = "20px";
+    num.style.fontSize = "large"
+    num.innerText = "  " + numVal + "  "
+    input.appendChild(num)
+    usersCurrentResult[num.id] = numVal.toString();
+}
+btn = document.createElement("button");
+btn.id = "slot" + total;
+total = total + 1;
+btn.style.height = "20px";
+btn.style.width = "20px";
+input.appendChild(btn)
+usersCurrentResult[btn.id] = "";
+
+// Create the result
+creatingResult = Object.values(usersCurrentResult);
+var open = 0;
+var operationChoices = ["+", "-", "*", "/"];
+var operationAdded = false;
+var currentValue = ""
+var temp;
+if (Math.round(Math.random())==1) {
+    creatingResult[0] = "("
+    currentValue = currentValue + "("
+    open = open + 1;
+}
+for (i = 1; i < (creatingResult.length)-1; i++) {
+    if (i%3 == 0) {
+        if (operationAdded == false || Math.round(((creatingResult.length) - i)/3)+1 - open == 0) {
+            creatingResult[i] = operationChoices[Math.round(Math.random()*3)];
+            if (creatingResult[i] == "/") {
+                temp = currentValue;
+                if (open > 0) {
+                    var tempOpen = open;
+                    while (tempOpen > 0) {
+                        temp = temp + ")"
+                        tempOpen = tempOpen-1
+                    }
+                }
+                temp = eval(temp)
+                if (temp/creatingResult[i+1] - Math.floor(temp/creatingResult[i+1]) != 0) {
+                    creatingResult[i] = operationChoices[Math.round(Math.random()*2)]
+                }
+            }
+            operationAdded = true;
+        }
+        else if (Math.round(Math.random())==1) {
+            creatingResult[i] = "("
+            open = open + 1;
+            operationAdded = false;
+        }
+        currentValue = currentValue + creatingResult[i]
+    }
+    else if (i%3 == 1) {
+        operationAdded = false;
+        currentValue = currentValue + creatingResult[i]
+    }
+    else {
+        if (open > 0) {
+            if (Math.round(((creatingResult.length) - i)/3)+1 - open == 0) {
+                creatingResult[i] = ")"
+                open = open - 1;
+            }
+            else if (Math.round(Math.random())==1) {
+                creatingResult[i] = ")"
+                open = open - 1;
+            }
+            operationAdded = false
+        }
+        else {
+            creatingResult[i] = operationChoices[Math.round(Math.random()*3)];
+            operationAdded = true;
+            if (creatingResult[i] == "/") {
+                temp = currentValue;
+                if (open > 0) {
+                    var tempOpen = open;
+                    while (tempOpen > 0) {
+                        temp = temp + ")"
+                        tempOpen = tempOpen-1
+                    }
+                }
+                temp = eval(temp)
+                if (temp/creatingResult[i+2] - Math.floor(temp/creatingResult[i+1]) != 0) {
+                    creatingResult[i] = operationChoices[Math.round(Math.random()*2)]
+                }
+            }
+        }
+        currentValue = currentValue + creatingResult[i]
+    }
+}
+if (open == 1) {
+    creatingResult[(creatingResult.length)-1] = ")"
+    currentValue = currentValue + ")"
+}
+console.log(currentValue)
+console.log(eval(currentValue))
+
 </script>
 
 
