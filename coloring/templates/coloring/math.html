@@ -2,247 +2,727 @@
 <!-- This is where the operations take place -->
 <!DOCTYPE html>
 <html>
+<!-- Button toggle https://stackoverflow.com/questions/38377062/how-to-make-html-button-look-pressed-in-using-css/38377286 -->
+<style>
+ button[name="input"]{
+    position: absolute;
+    width: 45px;
+    height: 46px;
+    top: 220px;
+    
+    background: #FFFFFF;
+    box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+
+    font-size: xx-large;
+        text-align: center;
+        padding: 2px;
+ }
+    
+  button[name="input"]:focus {
+  background: #e5e5e5;
+  outline: none;
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+     -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+          box-shadow: inset 0px 0px 5px #c1c1c1;
+ }
+/* span#time {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 890px;
+  top: 18px;
+
+  font-family: Itim;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 45px;
+  line-height: 86px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: white;
+} */
+span {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 220px;
+
+  font-family: Itim;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 45px;
+  line-height: 86px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: white;
+}
+    </style>
+<svg width="100%" height="600px " viewBox="0 0 1440 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100%" height="100%" fill="#A6D3F2"/>
+    <!-- Verify Button -->
+    <g filter="url(#filter8_d)">
+        <rect x="484" y="483" width="419" height="151" rx="40" fill="#7C49A4" onclick = "answer()"/>
+    </g>
+    <path d="M581.476 533.92C583.844 540.96 586.532 548.704 589.54 557.152C592.548 565.536 595.3 572.8 597.796 578.944C599.652 572.992 602.212 565.856 605.476 557.536C608.74 549.152 611.78 541.6 614.596 534.88C615.428 532.896 616.836 531.904 618.82 531.904C620.676 531.904 622.084 532.288 623.044 533.056C624.004 533.76 624.484 535.008 624.484 536.8C624.484 537.504 624.388 538.112 624.196 538.624C624.004 539.136 623.716 539.808 623.332 540.64C621.348 544.544 619.364 549.056 617.38 554.176C615.396 559.232 612.964 565.664 610.084 573.472C610.212 573.152 609.316 575.552 607.396 580.672L604.228 588.928C603.844 589.952 603.204 590.752 602.308 591.328C601.476 591.84 600.516 592.096 599.428 592.096C598.34 592.096 597.124 591.84 595.78 591.328C594.5 590.752 593.572 590.176 592.996 589.6C590.82 585.44 588.036 579.424 584.644 571.552C581.316 563.68 578.436 556.416 576.004 549.76L574.564 545.824C573.604 543.136 572.9 541.088 572.452 539.68C572.004 538.208 571.78 537.024 571.78 536.128C571.78 534.848 572.484 533.824 573.892 533.056C575.364 532.288 576.772 531.904 578.116 531.904C578.82 531.904 579.492 532.064 580.132 532.384C580.772 532.704 581.22 533.216 581.476 533.92ZM626.101 571.648C626.101 569.216 626.549 566.784 627.445 564.352C628.341 561.856 629.525 559.584 630.997 557.536C632.469 555.488 634.805 553.824 638.005 552.544C641.205 551.2 644.053 550.528 646.549 550.528C649.109 550.528 651.701 550.88 654.325 551.584C657.013 552.288 658.869 553.376 659.893 554.848C662.261 558.176 663.445 561.44 663.445 564.64C663.445 566.368 663.061 567.84 662.293 569.056C661.589 570.272 660.565 571.584 659.221 572.992C658.133 574.144 656.405 574.912 654.037 575.296C651.733 575.68 649.429 575.872 647.125 575.872C645.653 575.872 643.861 575.744 641.749 575.488C639.637 575.168 637.589 574.784 635.605 574.336C635.733 575.616 636.053 576.864 636.565 578.08C637.077 579.296 637.685 580.224 638.389 580.864C639.669 582.08 640.981 582.848 642.325 583.168C643.733 583.488 645.525 583.648 647.701 583.648C650.005 583.648 652.149 583.264 654.133 582.496C655.733 581.92 657.045 581.632 658.069 581.632C659.285 581.632 660.213 582.016 660.853 582.784C661.493 583.488 661.813 584.416 661.813 585.568C661.813 587.168 660.885 588.48 659.029 589.504C657.173 590.528 655.029 591.296 652.597 591.808C650.229 592.256 648.309 592.48 646.837 592.48C643.829 592.48 640.917 591.936 638.101 590.848C635.285 589.76 632.949 588.224 631.093 586.24C629.557 584.448 628.341 582.304 627.445 579.808C626.549 577.248 626.101 574.528 626.101 571.648ZM647.029 558.688C645.621 558.688 644.213 558.976 642.805 559.552C641.397 560.064 640.245 560.8 639.349 561.76C638.197 562.976 637.397 563.968 636.949 564.736C636.565 565.44 636.309 566.432 636.181 567.712C637.781 568.224 641.109 568.48 646.165 568.48C648.917 568.48 651.029 568.064 652.501 567.232C654.037 566.4 654.805 565.312 654.805 563.968C654.805 562.624 653.973 561.408 652.309 560.32C650.645 559.232 648.885 558.688 647.029 558.688ZM686.827 588.16C686.827 589.248 686.411 590.208 685.579 591.04C684.747 591.872 683.723 592.288 682.507 592.288C680.587 592.288 679.179 591.936 678.283 591.232C677.387 590.464 676.939 589.088 676.939 587.104C676.939 584.736 676.875 581.632 676.747 577.792C676.619 574.592 676.555 571.904 676.555 569.728C676.555 568.704 676.619 567.36 676.747 565.696C676.875 564.16 676.939 563.008 676.939 562.24C676.747 561.024 676.267 560.032 675.499 559.264C674.731 558.432 673.739 558.016 672.523 558.016C671.947 558.016 671.467 557.76 671.083 557.248C670.699 556.672 670.507 556.096 670.507 555.52C670.507 554.048 671.083 552.928 672.235 552.16C673.451 551.392 674.891 551.008 676.555 551.008C680.011 551.008 682.411 553.056 683.755 557.152C685.419 555.232 687.307 553.696 689.419 552.544C691.595 551.328 693.675 550.72 695.659 550.72C698.027 550.72 700.171 551.36 702.091 552.64C704.075 553.92 705.067 555.648 705.067 557.824C705.067 559.04 704.523 560.288 703.435 561.568C702.411 562.848 701.355 563.488 700.267 563.488C699.691 563.488 699.179 563.36 698.731 563.104C698.347 562.784 697.867 562.336 697.291 561.76C696.651 561.12 696.107 560.672 695.659 560.416C695.211 560.096 694.699 559.936 694.123 559.936C693.099 559.936 692.139 560.096 691.243 560.416C690.347 560.736 689.739 561.12 689.419 561.568C688.395 563.168 687.627 564.608 687.115 565.888C686.667 567.168 686.443 568.544 686.443 570.016C686.443 571.104 686.411 571.968 686.347 572.608L686.251 578.08C686.251 578.912 686.283 579.84 686.347 580.864C686.411 581.888 686.475 582.656 686.539 583.168C686.731 584.896 686.827 586.56 686.827 588.16ZM715.672 530.368C717.912 530.56 719.864 531.168 721.528 532.192C723.192 533.152 724.024 534.624 724.024 536.608C724.024 538.08 723.32 539.264 721.912 540.16C720.568 540.992 718.936 541.408 717.016 541.408C715.16 541.408 713.88 540.928 713.176 539.968C712.472 539.008 712.12 538.016 712.12 536.992C712.12 535.072 712.312 533.472 712.696 532.192C713.144 530.912 714.136 530.304 715.672 530.368ZM723.352 572.896V575.68C723.352 578.176 723.416 580.544 723.544 582.784C723.736 584.96 723.96 587.168 724.216 589.408C724.216 590.176 723.768 590.88 722.872 591.52C721.976 592.096 721.144 592.384 720.376 592.384C719.16 592.384 717.912 592.16 716.632 591.712C715.416 591.2 714.68 590.592 714.424 589.888C714.04 587.84 713.848 586.016 713.848 584.416C713.848 579.168 713.688 573.28 713.368 566.752C713.112 560.992 712.984 556.96 712.984 554.656C712.984 553.504 713.56 552.512 714.712 551.68C715.864 550.848 717.08 550.432 718.359 550.432C720.216 550.432 721.496 550.848 722.2 551.68C722.968 552.512 723.352 553.824 723.352 555.616V572.896ZM755.114 535.456C753.194 535.456 752.01 537.056 751.562 540.256C751.114 544.608 750.89 547.904 750.89 550.144C752.17 550.272 753.514 550.336 754.922 550.336C755.818 550.336 756.97 550.272 758.378 550.144L760.874 550.048C762.154 550.048 763.114 550.272 763.754 550.72C764.394 551.168 764.714 551.904 764.714 552.928C764.714 554.336 764.234 555.552 763.274 556.576C762.378 557.536 761.322 558.016 760.106 558.016C755.498 558.016 752.394 558.24 750.794 558.688C750.794 562.592 750.986 568.128 751.37 575.296L751.562 580L751.946 587.488C752.074 589.344 751.882 590.656 751.37 591.424C750.922 592.128 749.93 592.48 748.394 592.48C745.578 592.48 743.754 590.784 742.922 587.392C742.41 584.896 741.994 581.408 741.674 576.928C741.354 572.448 741.194 568.448 741.194 564.928C741.194 563.072 741.29 560.96 741.482 558.592C741.354 558.528 741.002 558.496 740.426 558.496C739.85 558.496 739.434 558.528 739.178 558.592C737.258 558.72 735.85 558.784 734.954 558.784C734.378 558.784 733.802 558.4 733.226 557.632C732.65 556.8 732.362 555.808 732.362 554.656C732.362 554.016 732.586 553.44 733.034 552.928C733.482 552.352 734.026 551.936 734.666 551.68C735.626 551.168 737.002 550.912 738.794 550.912L741.674 551.008C741.674 541.92 742.698 535.616 744.746 532.096C746.666 528.768 749.834 527.104 754.25 527.104C756.81 527.104 759.146 527.744 761.258 529.024C762.154 529.6 762.826 530.304 763.274 531.136C763.786 531.968 764.042 532.768 764.042 533.536C764.042 534.496 763.658 535.488 762.89 536.512C762.186 537.536 761.098 538.048 759.626 538.048C759.05 538.048 758.314 537.6 757.418 536.704C757.098 536.384 756.746 536.096 756.362 535.84C755.978 535.584 755.562 535.456 755.114 535.456ZM782.374 611.584C780.006 611.584 777.99 611.168 776.326 610.336C774.662 609.568 773.414 608.608 772.582 607.456C771.814 606.368 771.43 605.408 771.43 604.576C771.43 603.424 771.846 602.4 772.678 601.504C773.51 600.672 774.438 600.256 775.462 600.256C776.038 600.256 776.582 600.448 777.094 600.832C777.67 601.216 778.022 601.44 778.15 601.504C778.47 601.76 778.886 602.144 779.398 602.656C779.91 603.232 780.422 603.52 780.934 603.52C782.406 603.52 783.59 602.592 784.486 600.736C785.382 598.88 786.246 595.872 787.078 591.712C782.854 584.736 778.854 577.632 775.078 570.4C771.302 563.168 769.414 558.272 769.414 555.712C769.414 554.112 769.99 552.928 771.142 552.16C772.294 551.392 773.606 551.008 775.078 551.008C776.166 551.008 777.03 551.232 777.67 551.68C778.31 552.064 778.822 552.8 779.206 553.888C780.998 559.328 782.822 564.192 784.678 568.48C786.534 572.704 788.678 576.96 791.109 581.248C792.262 578.688 793.638 574.496 795.238 568.672C796.198 565.28 797.03 562.528 797.734 560.416C798.438 558.24 799.238 556.256 800.134 554.464C800.71 553.312 801.414 552.384 802.246 551.68C803.142 550.976 804.102 550.624 805.126 550.624C806.278 550.624 807.462 551.04 808.678 551.872C809.958 552.64 810.598 553.568 810.598 554.656C810.598 554.976 810.374 555.744 809.926 556.96C807.43 562.528 805.222 567.904 803.302 573.088C801.382 578.208 799.59 583.84 797.926 589.984C796.902 593.248 795.814 596.416 794.661 599.488C793.51 602.624 792.71 604.576 792.262 605.344C790.918 607.136 789.478 608.608 787.942 609.76C786.406 610.976 784.55 611.584 782.374 611.584Z" fill="white"/>
+    <rect x="177" y="773" width="170" height="170" fill="#C4C4C4"/>
+    <rect x="465" y="773" width="170" height="170" fill="#C4C4C4"/>
+    <rect x="753" y="773" width="170" height="170" fill="#C4C4C4"/>
+    <rect x="1041" y="773" width="170" height="170" fill="#C4C4C4"/>
+    <rect x="1101" y="58" width="261" height="136" rx="40" fill="#F7A7CD"/>
+    <rect x="51" y="706" width="1337" height="277" rx="40" fill="white"/>
+    <!-- plus -->
+    <g filter="url(#filter9_d)">
+    <rect x="112" y="755" width="180" height="180" rx="40" fill="#FF748F" name = "operator" id = "+"/>
+    </g>
+    <path d="M243.143 833.906H212.286V802.125C212.286 798.225 209.215 795.062 205.429 795.062H198.571C194.785 795.062 191.714 798.225 191.714 802.125V833.906H160.857C157.071 833.906 154 837.069 154 840.969V848.031C154 851.931 157.071 855.094 160.857 855.094H191.714V886.875C191.714 890.775 194.785 893.938 198.571 893.938H205.429C209.215 893.938 212.286 890.775 212.286 886.875V855.094H243.143C246.929 855.094 250 851.931 250 848.031V840.969C250 837.069 246.929 833.906 243.143 833.906Z" fill="white"/>
+    <!-- Divide -->
+    <g filter="url(#filter10_d)">
+    <rect x="730" y="757" width="180" height="180" rx="40" fill="#58ADE7" name = "operator" id = "÷"/>
+    </g>
+    <path d="M819 866.938C811.741 866.938 805.857 873.037 805.857 880.562C805.857 888.088 811.741 894.188 819 894.188C826.259 894.188 832.143 888.088 832.143 880.562C832.143 873.037 826.259 866.938 819 866.938ZM819 826.062C826.259 826.062 832.143 819.963 832.143 812.438C832.143 804.912 826.259 798.812 819 798.812C811.741 798.812 805.857 804.912 805.857 812.438C805.857 819.963 811.741 826.062 819 826.062ZM858.429 836.281H779.571C775.943 836.281 773 839.332 773 843.094V849.906C773 853.668 775.943 856.719 779.571 856.719H858.429C862.057 856.719 865 853.668 865 849.906V843.094C865 839.332 862.057 836.281 858.429 836.281Z" fill="white"/>
+    <!-- minus -->
+    <g filter="url(#filter11_d)">
+    <rect x="318" y="754" width="180" height="180" rx="40" fill="#F7D78C" name = "operator" id = "-" />
+    </g>
+    <path d="M454.286 836.125H361.714C357.455 836.125 354 839.372 354 843.375V850.625C354 854.628 357.455 857.875 361.714 857.875H454.286C458.545 857.875 462 854.628 462 850.625V843.375C462 839.372 458.545 836.125 454.286 836.125Z" fill="white"/>
+    <!-- Multiply -->
+    <g filter="url(#filter12_d)">
+    <rect x="524" y="754" width="180" height="180" rx="40" fill="#8FCA73" name = "operator" id = "x"/>
+    </g>
+    <g clip-path="url(#clip0)">
+    <path d="M631.059 848L656.645 824.546C659.785 821.668 659.785 817.002 656.645 814.121L650.959 808.909C647.819 806.03 642.728 806.03 639.586 808.909L614 832.362L588.414 808.909C585.274 806.03 580.184 806.03 577.041 808.909L571.355 814.121C568.215 816.999 568.215 821.666 571.355 824.546L596.941 848L571.355 871.454C568.215 874.332 568.215 878.998 571.355 881.879L577.041 887.091C580.181 889.97 585.274 889.97 588.414 887.091L614 863.638L639.586 887.091C642.726 889.97 647.819 889.97 650.959 887.091L656.645 881.879C659.785 879.001 659.785 874.334 656.645 871.454L631.059 848Z" fill="white"/>
+    </g>
+    <!-- (-->
+    <g filter="url(#filter13_d)">
+    <rect x="936" y="754" width="180" height="180" rx="40" fill="#ABBCFA" name = "operator" id = "("/>
+    </g>
+    <path d="M1024.49 890.976L1023.34 889.056C1022.96 888.416 1022.67 887.872 1022.48 887.424C1021.07 885.12 1020.01 883.072 1019.31 881.28C1016.88 875.584 1015.37 869.568 1014.8 863.232C1014.22 856.832 1014.48 850.592 1015.57 844.512C1016.72 838.368 1018.32 832.544 1020.37 827.04C1022.41 821.536 1024.88 816.192 1027.76 811.008C1028.65 809.408 1030 808.352 1031.79 807.84C1033.58 807.328 1035.28 807.52 1036.88 808.416C1038.48 809.312 1039.53 810.656 1040.05 812.448C1040.56 814.24 1040.37 815.936 1039.47 817.536C1036.78 822.4 1034.57 827.136 1032.85 831.744C1031.05 836.608 1029.71 841.568 1028.81 846.624C1027.92 851.68 1027.69 856.768 1028.14 861.888C1028.59 866.944 1029.74 871.68 1031.6 876.096C1032.11 877.312 1032.91 878.848 1034 880.704L1037.17 886.08C1038.06 887.744 1038.25 889.44 1037.74 891.168C1037.23 892.96 1036.14 894.304 1034.48 895.2C1032.88 896.096 1031.18 896.288 1029.39 895.776C1027.66 895.264 1026.35 894.208 1025.45 892.608L1024.49 890.976Z" fill="white"/>
+    <!-- )-->
+    <g filter="url(#filter14_d)">
+    <rect x="1142" y="754" width="180" height="180" rx="40" fill="#FF8A8A" name = "operator" id = ")"/>
+    </g>
+    <path d="M1231.05 889.744C1230.22 891.408 1228.94 892.528 1227.21 893.104C1225.49 893.744 1223.79 893.648 1222.13 892.816C1220.46 892.048 1219.31 890.8 1218.67 889.072C1218.09 887.344 1218.19 885.648 1218.96 883.984C1222.41 876.88 1224.97 870.608 1226.64 865.168C1228.37 859.728 1229.29 854.576 1229.42 849.712C1229.81 840.112 1226.86 828.848 1220.59 815.92C1219.82 814.256 1219.73 812.56 1220.3 810.832C1220.94 809.104 1222.09 807.856 1223.76 807.088C1225.42 806.256 1227.12 806.16 1228.85 806.8C1230.57 807.376 1231.85 808.496 1232.69 810.16C1236.33 817.712 1238.99 824.72 1240.65 831.184C1242.32 837.584 1243.05 843.92 1242.86 850.192C1242.61 856.272 1241.49 862.48 1239.5 868.816C1237.58 875.088 1234.77 882.064 1231.05 889.744Z" fill="white"/>
+    <defs>
+    <filter id="filter0_d" x="36" y="312" width="88" height="95" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+    <feOffset dy="10"/>
+    <feGaussianBlur stdDeviation="2"/>
+    <feComposite in2="hardAlpha" operator="out"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    <filter id="filter1_d" x="463" y="312" width="89" height="95" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+    <feOffset dy="10"/>
+    <feGaussianBlur stdDeviation="2"/>
+    <feComposite in2="hardAlpha" operator="out"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    <filter id="filter2_d" x="737" y="312" width="88" height="95" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+    <feOffset dy="10"/>
+    <feGaussianBlur stdDeviation="2"/>
+    <feComposite in2="hardAlpha" operator="out"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    <filter id="filter3_d" x="836" y="312" width="87" height="95" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+    <feOffset dy="10"/>
+    <feGaussianBlur stdDeviation="2"/>
+    <feComposite in2="hardAlpha" operator="out"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    <filter id="filter4_d" x="1008" y="312" width="88" height="95" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+    <feOffset dy="10"/>
+    <feGaussianBlur stdDeviation="2"/>
+    <feComposite in2="hardAlpha" operator="out"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    <filter id="filter5_d" x="563" y="312" width="88" height="95" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+    <feOffset dy="10"/>
+    <feGaussianBlur stdDeviation="2"/>
+    <feComposite in2="hardAlpha" operator="out"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    <filter id="filter6_d" x="301" y="312" width="87" height="95" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+    <feOffset dy="10"/>
+    <feGaussianBlur stdDeviation="2"/>
+    <feComposite in2="hardAlpha" operator="out"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    <filter id="filter7_d" x="203" y="312" width="88" height="95" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+    <feOffset dy="10"/>
+    <feGaussianBlur stdDeviation="2"/>
+    <feComposite in2="hardAlpha" operator="out"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    <filter id="filter8_d" x="480" y="483" width="427" height="165" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+    <feOffset dy="10"/>
+    <feGaussianBlur stdDeviation="2"/>
+    <feComposite in2="hardAlpha" operator="out"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    <filter id="filter9_d" x="108" y="755" width="188" height="194" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+    <feOffset dy="10"/>
+    <feGaussianBlur stdDeviation="2"/>
+    <feComposite in2="hardAlpha" operator="out"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    <filter id="filter10_d" x="726" y="757" width="188" height="194" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+    <feOffset dy="10"/>
+    <feGaussianBlur stdDeviation="2"/>
+    <feComposite in2="hardAlpha" operator="out"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    <filter id="filter11_d" x="314" y="754" width="188" height="194" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+    <feOffset dy="10"/>
+    <feGaussianBlur stdDeviation="2"/>
+    <feComposite in2="hardAlpha" operator="out"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    <filter id="filter12_d" x="520" y="754" width="188" height="194" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+    <feOffset dy="10"/>
+    <feGaussianBlur stdDeviation="2"/>
+    <feComposite in2="hardAlpha" operator="out"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    <filter id="filter13_d" x="932" y="754" width="188" height="194" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+    <feOffset dy="10"/>
+    <feGaussianBlur stdDeviation="2"/>
+    <feComposite in2="hardAlpha" operator="out"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    <filter id="filter14_d" x="1138" y="754" width="188" height="194" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+    <feOffset dy="10"/>
+    <feGaussianBlur stdDeviation="2"/>
+    <feComposite in2="hardAlpha" operator="out"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    <clipPath id="clip0">
+    <rect width="90" height="120" fill="white" transform="translate(569 788)"/>
+    </clipPath>
+    </defs>
+    </svg>
+    
 <!-- The timer shown -->
-<p>
+<p id = time>
     <span id = "Minutes">0</span>
     <span id = "colon"> : </span>
     <span id = "Seconds">00</span>
 </p>
+<h1 id = result>
+
+</h1>
 <!-- The input operators -->
 <div id="inputs">
 
 </div>
-
-<!-- The operations -->
-<div>
-    <button id = plus> + </button>
-    <button id = minus> - </button>
-    <button id = multiply> x </button>
-    <button id = divide> ÷ </button>
-    <button id = open> ( </button>
-    <button id = close> ) </button>
-</div>
-
 <script>
 const str = window.location.href.toString();
 const arr = str.split("?")[1].split("&");
-var conditions = {
-    minutes: "0",
-    seconds: "00",
-    option: "blank",
-    difficulty: 1
-};
-for (i in arr) {
-    var curr = arr[i].split("=");
-    conditions[curr[0]] = curr[1]
-}
-conditions["minutes"] = parseInt(conditions["minutes"])
-conditions["seconds"] = parseInt(conditions["seconds"])
-conditions["difficulty"] = parseInt(conditions["difficulty"])
-var minute = document.getElementById("Minutes")
-var colon = document.getElementById("colon")
-var second = document.getElementById("Seconds")
-
-// If the user sets infinity as condition
-if (conditions["option"] == "infinity") {
-    minute.textContent = "∞";
-    colon.textContent = "";
-    second.textContent = "";
-}
-// if user sets time as condition
-else {
-    var numeralMinutes = conditions["minutes"]
-    var numeralSeconds = conditions["seconds"]
-    var displayedMinutes = conditions["minutes"].toString()
-    var displayedSeconds = conditions["seconds"].toString()
-    if (numeralSeconds < 10) {
-        displayedSeconds = "0" + displayedSeconds 
-    }
-    minute.textContent = displayedMinutes
-    second.textContent = displayedSeconds
-    var interval = setInterval(function() {
-        // When time runs out
-        if (numeralMinutes == 0 & numeralSeconds == 0) {
-            clearInterval(interval);
-            // Do something here
+    if (arr.length == 4) {
+        var conditions = {
+            minutes: "0",
+            seconds: "00",
+            option: "blank",
+            difficulty: 1
+        };
+        for (i in arr) {
+            var curr = arr[i].split("=");
+            conditions[curr[0]] = curr[1]
         }
-        // Update numeral variables
-        else if (numeralSeconds == 0) {
-            numeralMinutes = numeralMinutes - 1;
-            numeralSeconds = 59;
-        }
-        else {
-            numeralSeconds = numeralSeconds - 1;
-        }
-        // Update displayed variables
-        displayedMinutes = numeralMinutes.toString()
-        displayedSeconds = numeralSeconds.toString()
-        if (numeralSeconds < 10) {
-            displayedSeconds = "0" + displayedSeconds 
-        }   
-        // Update visuals
-        minute.textContent = displayedMinutes
-        second.textContent = displayedSeconds   
-    }, 1000);
-}
-// Insert numbers/inputs based on difficulty
-var usersCurrentResult = {
-};
-// var inputTotal = 0;
-// var numTotal = 0;
-var total = 0;
-const allNumbers = [];
-
-var input = document.getElementById("inputs");
-var btn = document.createElement("button");
-btn.id = "slot" + total;
-total = total + 1;
-btn.style.height = "20px";
-btn.style.width = "20px";
-input.appendChild(btn)
-usersCurrentResult[btn.id] = "";
-
-var numVal = Math.round(Math.random()*50)+1;
-allNumbers.push(numVal.toString())
-var num = document.createElement("span");
-num.id = "slot" + total;
-total = total + 1;
-num.style.height = "20px";
-num.style.width = "20px";
-num.style.fontSize = "large"
-num.innerText = "  " + numVal + "  "
-input.appendChild(num)
-usersCurrentResult[num.id] = numVal.toString();
-for (i = 0; i < conditions["difficulty"]; i++) {
-    btn = document.createElement("button");
-    btn.id = "slot" + total;
-    total = total + 1;
-    btn.style.height = "20px";
-    btn.style.width = "20px";
-    input.appendChild(btn)
-    usersCurrentResult[btn.id] = "";
-
-    btn = document.createElement("button");
-    btn.id = "slot" + total;
-    total = total + 1;
-    btn.style.height = "20px";
-    btn.style.width = "20px";
-    input.appendChild(btn)
-    usersCurrentResult[btn.id] = "";
-
-    numVal = Math.round(Math.random()*50)+1;
-    allNumbers.push(numVal.toString())
-    num = document.createElement("span");
-    num.id = "slot" + total;
-    total = total + 1;
-    num.style.height = "20px";
-    num.style.width = "20px";
-    num.style.fontSize = "large"
-    num.innerText = "  " + numVal + "  "
-    input.appendChild(num)
-    usersCurrentResult[num.id] = numVal.toString();
-}
-btn = document.createElement("button");
-btn.id = "slot" + total;
-total = total + 1;
-btn.style.height = "20px";
-btn.style.width = "20px";
-input.appendChild(btn)
-usersCurrentResult[btn.id] = "";
-
-// Create the result
-creatingResult = Object.values(usersCurrentResult);
-var open = 0;
-var operationChoices = ["+", "-", "*", "/"];
-var operationAdded = false;
-var currentValue = ""
-var temp;
-if (Math.round(Math.random())==1) {
-    creatingResult[0] = "("
-    currentValue = currentValue + "("
-    open = open + 1;
-}
-for (i = 1; i < (creatingResult.length)-1; i++) {
-    if (i%3 == 0) {
-        if (operationAdded == false || Math.round(((creatingResult.length) - i)/3)+1 - open == 0) {
-            creatingResult[i] = operationChoices[Math.round(Math.random()*3)];
-            if (creatingResult[i] == "/") {
-                temp = currentValue;
-                if (open > 0) {
-                    var tempOpen = open;
-                    while (tempOpen > 0) {
-                        temp = temp + ")"
-                        tempOpen = tempOpen-1
-                    }
-                }
-                temp = eval(temp)
-                if (temp/creatingResult[i+1] - Math.floor(temp/creatingResult[i+1]) != 0) {
-                    creatingResult[i] = operationChoices[Math.round(Math.random()*2)]
-                }
-            }
-            operationAdded = true;
-        }
-        else if (Math.round(Math.random())==1) {
-            creatingResult[i] = "("
-            open = open + 1;
-            operationAdded = false;
-        }
-        currentValue = currentValue + creatingResult[i]
-    }
-    else if (i%3 == 1) {
-        operationAdded = false;
-        currentValue = currentValue + creatingResult[i]
     }
     else {
-        if (open > 0) {
-            if (Math.round(((creatingResult.length) - i)/3)+1 - open == 0) {
-                creatingResult[i] = ")"
-                open = open - 1;
-            }
-            else if (Math.round(Math.random())==1) {
-                creatingResult[i] = ")"
-                open = open - 1;
-            }
-            operationAdded = false
+        var conditions = {
+            minutes: "0",
+            seconds: "00",
+            option: "blank",
+            difficulty: 1,
+            target: 0,
+            nums: 0
+        };
+        for (i in arr) {
+            var curr = arr[i].split("=");
+            conditions[curr[0]] = curr[1]
         }
-        else {
-            creatingResult[i] = operationChoices[Math.round(Math.random()*3)];
-            operationAdded = true;
-            if (creatingResult[i] == "/") {
-                temp = currentValue;
+    }
+    if (arr.length != 4) {
+        conditions['num'] = conditions['num'].split("/")
+    }
+    conditions["minutes"] = parseInt(conditions["minutes"])
+    conditions["seconds"] = parseInt(conditions["seconds"])
+    conditions["difficulty"] = parseInt(conditions["difficulty"])
+    var minute = document.getElementById("Minutes")
+    var colon = document.getElementById("colon")
+    var second = document.getElementById("Seconds")
+
+    // If the user sets infinity as condition
+    if (conditions["option"] == "infinity") {
+        minute.textContent = "∞";
+        colon.textContent = "";
+        second.textContent = "";
+    }
+    // if user sets time as condition
+    else {
+        var numeralMinutes = conditions["minutes"]
+        var numeralSeconds = conditions["seconds"]
+        var displayedMinutes = conditions["minutes"].toString()
+        var displayedSeconds = conditions["seconds"].toString()
+        if (numeralSeconds < 10) {
+            displayedSeconds = "0" + displayedSeconds 
+        }
+        minute.textContent = displayedMinutes
+        second.textContent = displayedSeconds
+        var interval = setInterval(function() {
+            // When time runs out
+            if (numeralMinutes == 0 & numeralSeconds == 0) {
+                clearInterval(interval);
+                // Do something here
+            }
+            // Update numeral variables
+            else if (numeralSeconds == 0) {
+                numeralMinutes = numeralMinutes - 1;
+                numeralSeconds = 59;
+            }
+            else {
+                numeralSeconds = numeralSeconds - 1;
+            }
+            // Update displayed variables
+            displayedMinutes = numeralMinutes.toString()
+            displayedSeconds = numeralSeconds.toString()
+            if (numeralSeconds < 10) {
+                displayedSeconds = "0" + displayedSeconds 
+            }   
+            // Update visuals
+            minute.textContent = displayedMinutes
+            second.textContent = displayedSeconds   
+        }, 1000);
+    }
+    // Insert numbers/inputs based on difficulty
+    var usersCurrentResult = {
+    };
+    // If we didn't do retry
+    if (arr.length == 4) {
+        //Total keeps track of how many numbers and buttons will be added
+        //allNumbers keeps track of all numbers that are added
+        var total = 0;
+        var allNumbers = [];
+        //Adds a button
+        var input = document.getElementById("inputs");
+        var btn = document.createElement("button");
+        var prevLoc = 210 - 87*(conditions["difficulty"] - 1);
+        btn.id = "slot" + total;
+        btn.name = "input"
+        btn.style.left= prevLoc + "px";
+        total = total + 1;
+        input.appendChild(btn)
+        usersCurrentResult[btn.id] = "";
+        //Adds a number
+        var numVal = Math.round(Math.random()*50)+1;
+        allNumbers.push(numVal.toString())
+        var num = document.createElement("span");
+        num.id = "slot" + total;
+        total = total + 1;
+        // num.style.fontSize = "large"
+        num.style.left = "300px"
+        num.innerText = "  " + numVal + "  "
+        input.appendChild(num)
+        usersCurrentResult[num.id] = numVal.toString();
+        //Loop to add the remaining buttons and numbers
+        for (i = 0; i < conditions["difficulty"]; i++) {
+            btn = document.createElement("button");
+            btn.id = "slot" + total;
+            btn.name = "input"
+            total = total + 1;
+            loc = (parseInt(prevLoc) + 80).toString() + "px"
+            prevLoc = (parseInt(prevLoc) + 80).toString()
+            btn.style.left= loc;
+            input.appendChild(btn)
+            usersCurrentResult[btn.id] = "";
+
+            btn = document.createElement("button");
+            btn.id = "slot" + total;
+            btn.name = "input"
+            total = total + 1;
+            loc = (parseInt(prevLoc) + 50).toString() + "px"
+            prevLoc = (parseInt(prevLoc) + 50).toString()
+            btn.style.left = loc;
+            input.appendChild(btn)
+            usersCurrentResult[btn.id] = "";
+            
+
+            numVal = Math.round(Math.random()*50)+1;
+            allNumbers.push(numVal.toString())
+            num = document.createElement("span");
+            num.id = "slot" + total;
+            total = total + 1;
+            num.style.height = "25px";
+            num.style.width = "25px";
+            num.style.fontSize = "large"
+            num.innerText = "  " + numVal + "  "
+            input.appendChild(num)
+            usersCurrentResult[num.id] = numVal.toString();
+        }
+        //Adds the very last button
+        btn = document.createElement("button");
+        btn.id = "slot" + total;
+        btn.name = "input";
+        loc = (parseInt(prevLoc) + 80).toString() + "px"
+        btn.style.left = loc;
+        total = total + 1;
+        input.appendChild(btn)
+        usersCurrentResult[btn.id] = "";
+
+        // Create the result
+        creatingResult = Object.values(usersCurrentResult);
+        //Open keeps track of open parentheses  
+        var open = 0;
+        var operationChoices = ["+", "-", "*", "/"];
+        var operationAdded = false;
+        var currentValue = ""
+        var temp;
+        if (Math.round(Math.random())==1) {
+            creatingResult[0] = "("
+            currentValue = currentValue + "("
+            open = open + 1;
+        }
+        for (i = 1; i < (creatingResult.length)-1; i++) {
+            if (i%3 == 0) {
+                if (operationAdded == false || Math.round(((creatingResult.length) - i)/3)+1 - open == 0) {
+                    creatingResult[i] = operationChoices[Math.round(Math.random()*3)];
+                    if (creatingResult[i] == "/") {
+                        temp = currentValue;
+                        if (open > 0) {
+                            var tempOpen = open;
+                            while (tempOpen > 0) {
+                                temp = temp + ")"
+                                tempOpen = tempOpen-1
+                            }
+                        }
+                        temp = eval(temp)
+                        if (temp/creatingResult[i+1] - Math.floor(temp/creatingResult[i+1]) != 0) {
+                            creatingResult[i] = operationChoices[Math.round(Math.random()*2)]
+                        }
+                    }
+                    operationAdded = true;
+                }
+                else if (Math.round(Math.random())==1) {
+                    creatingResult[i] = "("
+                    open = open + 1;
+                    operationAdded = false;
+                }
+                currentValue = currentValue + creatingResult[i]
+            }
+            else if (i%3 == 1) {
+                operationAdded = false;
+                currentValue = currentValue + creatingResult[i]
+            }
+            else {
                 if (open > 0) {
-                    var tempOpen = open;
-                    while (tempOpen > 0) {
-                        temp = temp + ")"
-                        tempOpen = tempOpen-1
+                    if (Math.round(((creatingResult.length) - i)/3)+1 - open == 0) {
+                        creatingResult[i] = ")"
+                        open = open - 1;
+                    }
+                    else if (Math.round(Math.random())==1) {
+                        creatingResult[i] = ")"
+                        open = open - 1;
+                    }
+                    operationAdded = false
+                }
+                else {
+                    creatingResult[i] = operationChoices[Math.round(Math.random()*3)];
+                    operationAdded = true;
+                    if (creatingResult[i] == "/") {
+                        temp = currentValue;
+                        if (open > 0) {
+                            var tempOpen = open;
+                            while (tempOpen > 0) {
+                                temp = temp + ")"
+                                tempOpen = tempOpen-1
+                            }
+                        }
+                        temp = eval(temp)
+                        if (temp/creatingResult[i+2] - Math.floor(temp/creatingResult[i+1]) != 0) {
+                            creatingResult[i] = operationChoices[Math.round(Math.random()*2)]
+                        }
                     }
                 }
-                temp = eval(temp)
-                if (temp/creatingResult[i+2] - Math.floor(temp/creatingResult[i+1]) != 0) {
-                    creatingResult[i] = operationChoices[Math.round(Math.random()*2)]
-                }
+                currentValue = currentValue + creatingResult[i]
             }
         }
-        currentValue = currentValue + creatingResult[i]
+        if (open == 1) {
+            creatingResult[(creatingResult.length)-1] = ")"
+            currentValue = currentValue + ")"
+        }
+        var res = document.createElement("span");
+        res.textContent = eval(currentValue);
+        document.getElementById("result").appendChild(res)
+    }
+    //If we did do retry
+    else {
+        //Total keeps track of how many numbers and buttons will be added
+        //allNumbers keeps track of all numbers that are added
+        var total = 0;
+        var currentNumber = 0;
+        var allNumbers = [];
+        var prevLoc = 30 + 87*(conditions["difficulty"] - 1);
+        //Adds a button
+        var input = document.getElementById("inputs");
+        var btn = document.createElement("button");
+        btn.id = "slot" + total;
+        btn.name = "input"
+        total = total + 1;
+        btn.style.left= prevLoc + "px";
+        input.appendChild(btn)
+        usersCurrentResult[btn.id] = "";
+        //Adds a number
+        var numVal = parseInt(conditions["num"][currentNumber])
+        currentNumber = currentNumber + 1;
+        allNumbers.push(numVal.toString())
+        var num = document.createElement("span");
+        num.id = "slot" + total;
+        total = total + 1;
+        num.style.height = "25px";
+        num.style.width = "25px";
+        num.style.fontSize = "large"
+        num.innerText = "  " + numVal + "  "
+        input.appendChild(num)
+        usersCurrentResult[num.id] = numVal.toString();
+        //Loop to add the remaining buttons and numbers
+        for (i = 0; i < conditions["difficulty"]; i++) {
+            btn = document.createElement("button");
+            btn.id = "slot" + total;
+            btn.name = "input"
+            total = total + 1;
+            loc = (parseInt(prevLoc) + 80).toString() + "px"
+            prevLoc = (parseInt(prevLoc) + 80).toString()
+            btn.style.left= loc;
+            input.appendChild(btn)
+            usersCurrentResult[btn.id] = "";
+
+            btn = document.createElement("button");
+            btn.id = "slot" + total;
+            btn.name = "input"
+            total = total + 1;
+            loc = (parseInt(prevLoc) + 50).toString() + "px"
+            prevLoc = (parseInt(prevLoc) + 50).toString()
+            btn.style.left= loc;
+            input.appendChild(btn)
+            usersCurrentResult[btn.id] = "";
+            
+
+            var numVal = parseInt(conditions["num"][currentNumber])
+            currentNumber = currentNumber + 1;
+            allNumbers.push(numVal.toString())
+            num = document.createElement("span");
+            num.id = "slot" + total;
+            total = total + 1;
+            num.style.height = "25px";
+            num.style.width = "25px";
+            num.style.fontSize = "large"
+            num.innerText = "  " + numVal + "  "
+            input.appendChild(num)
+            usersCurrentResult[num.id] = numVal.toString();
+        }
+        //Adds the very last button
+        btn = document.createElement("button");
+        btn.id = "slot" + total;
+        btn.name = "input";
+        total = total + 1;
+        loc = (parseInt(prevLoc) + 80).toString() + "px"
+        prevLoc = (parseInt(prevLoc) + 80).toString()
+        btn.style.left= loc;
+        input.appendChild(btn)
+        usersCurrentResult[btn.id] = "";
+        var res = document.createElement("span");
+        var currentValue = parseInt(conditions["target"])
+        res.textContent = conditions["target"];
+        document.getElementById("result").appendChild(res)
+}
+//currentButton will be the input the user clicked
+var currentButton = null;
+
+function clickInput(clicked) {
+    currentButton = document.getElementById(this.id);
+    currentButton.toggleAttribute = true;
+}
+function clickOperator(clicked) {
+    if (currentButton != null) {
+        currentButton.textContent = this.id;
+        if (this.id == "x") {
+            usersCurrentResult[currentButton.id] = "*"
+        }
+        else if (this.id == "÷") {
+            usersCurrentResult[currentButton.id] = "/"
+        }
+        else {
+            usersCurrentResult[currentButton.id] = this.id;
+        }
+        currentButton = null;
     }
 }
-if (open == 1) {
-    creatingResult[(creatingResult.length)-1] = ")"
-    currentValue = currentValue + ")"
+// https://stackoverflow.com/questions/4923316/eval-javascript-check-for-syntax-error
+function currentVal() {
+    var val = "";
+    var cur;
+    var section = 0;
+    for (i = 0; i < Object.keys(usersCurrentResult).length; i++) {
+        cur = usersCurrentResult["slot" + i.toString()].toString()
+        if (i > 1) {
+            if (i % 3 == 1) {
+                if (section == 0) {
+                    alert("Please make sure you filled out the operations correctly")
+                    return;
+                } 
+                section = 0;
+            }
+            else if (cur == "+" || cur == "-" || cur == "*" || cur == "/") {
+                section = section + 1;
+            }
+        }
+        val = val + cur
+    }
+    try {
+        document.getElementById("checkedResult").textContent = "Current result: " + eval(val);
+    } catch(e) {
+        if (e instanceof SyntaxError) {
+            alert("Please make sure there are no operational mistakes")
+        }
+    }
 }
-console.log(currentValue)
-console.log(eval(currentValue))
-
+function answer() {
+    var val = "";
+    var cur;
+    var section = 0;
+    for (i = 0; i < Object.keys(usersCurrentResult).length; i++) {
+        cur = usersCurrentResult["slot" + i.toString()].toString()
+        if (i > 1) {
+            if (i % 3 == 1) {
+                if (section == 0) {
+                    alert("Please make sure you filled out the operations correctly")
+                    return;
+                } 
+                section = 0;
+            }
+            else if (cur == "+" || cur == "-" || cur == "*" || cur == "/") {
+                section = section + 1;
+            }
+        }
+        val = val + cur
+    }
+    try {
+        if (eval(val) == eval(currentValue)) {
+            location.href='http://localhost:8000/coloring/correct/?' + str.split("?")[1];
+        }
+        else {
+            var numString = allNumbers[0].toString();
+            for (i = 1; i < allNumbers.length; i++) {
+                numString = numString + "/" + allNumbers[i]
+            }
+            if (arr.length == 4) {
+                location.href='http://localhost:8000/coloring/incorrect/?'+ str.split("?")[1] + "&target=" + eval(currentValue) + "&num=" +numString;
+            }
+            else {
+                location.href='http://localhost:8000/coloring/incorrect/?'+ str.split("?")[1]
+            }
+        }
+        document.getElementById("checkedResult").textContent = "Current result: " + eval(val);
+    } catch(e) {
+        if (e instanceof SyntaxError) {
+            alert("Please make sure there are no operational mistakes")
+        }
+    }
+}
+function removeOperator() {
+    if (currentButton != null) {
+        usersCurrentResult[currentButton.id] = "";
+        currentButton.textContent = "";
+        currentButton = null;
+    }
+}
+//Set all inputs to the function on click
+var allButtons = document.getElementsByName("input");
+for (i = 0; i < allButtons.length; i++) {
+    allButtons[i].onclick = clickInput;
+}
+//Sets all operators to function on click
+var allOperators = document.getElementsByName("operator");
+for (i = 0; i < allOperators.length; i++) {
+    allOperators[i].onclick = clickOperator;
+}
 </script>
 
 
 
 <!-- Send to right page -->
-<button onclick="location.href='http://localhost:8000/coloring/correct/'">
-    Right
+<button onclick = removeOperator()>
+    Remove
 </button>
-<!-- Send to wrong page -->
-<button onclick="location.href='http://localhost:8000/coloring/incorrect/'">
-    Wrong
+<button onclick = currentVal()>
+    Check
 </button>
+<!-- <button onclick = answer()>
+    Verify
+</button> -->
+<p id = checkedResult> </p>
 </html>
