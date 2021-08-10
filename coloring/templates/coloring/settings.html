@@ -29,9 +29,9 @@ span {
 
 <html>
 <span id = time style="font-family: Itim;">
-  <input class="form-control" type="text" style="margin-left: 20vw; margin-top: 1vh; width: 70px; height: 60px; font-family: Itim; font-style: normal; font-weight: normal; font-size: 50px; line-height: 60px; display: flex; align-items: center; text-align: center; color: #A6D3F2; border-radius: 25px; background-color:white; border: none;">
+  <input class="form-control" id = "minutes" type="text" style="margin-left: 20vw; margin-top: 1vh; width: 70px; height: 60px; font-family: Itim; font-style: normal; font-weight: normal; font-size: 50px; line-height: 60px; display: flex; align-items: center; text-align: center; color: #A6D3F2; border-radius: 25px; background-color:white; border: none;">
    :
-<input class="form-control" type="text" style="margin-left: 0vw; margin-top: 1vh; width: 70px; height: 60px; font-family: Itim; font-style: normal; font-weight: normal; font-size: 50px; line-height: 60px; display: flex; align-items: center; text-align: center; color: #A6D3F2; border-radius: 25px; background-color:white; border: none;">
+<input class="form-control" id = "seconds" type="text" style="margin-left: 0vw; margin-top: 1vh; width: 70px; height: 60px; font-family: Itim; font-style: normal; font-weight: normal; font-size: 50px; line-height: 60px; display: flex; align-items: center; text-align: center; color: #A6D3F2; border-radius: 25px; background-color:white; border: none;">
   </span>
 
 <svg width="100%" height="600px" viewBox="0 0 1440 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -187,9 +187,8 @@ span {
       var unfill = document.getElementById("infinity")
       unfill.setAttribute("fill", "white")
       option = "timer"
-      times = document.getElementById("time").textContent.split(":") 
-      minutes = times[0]
-      seconds = times[1]
+      minutes = document.getElementById("minutes").value
+      seconds = document.getElementById("seconds").value
     }
     else {
       var fill = document.getElementById("infinity")
