@@ -26,24 +26,6 @@
      -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
           box-shadow: inset 0px 0px 5px #c1c1c1;
  }
-/* span#time {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  left: 890px;
-  top: 18px;
-
-  font-family: Itim;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 45px;
-  line-height: 86px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-
-  color: white;
-} */
 span {
   position: absolute;
   width: 50px;
@@ -59,7 +41,7 @@ span {
   align-items: center;
   text-align: center;
 
-  color: white;
+  color: black;
 }
     </style>
 <svg width="100%" height="600px " viewBox="0 0 1440 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -410,7 +392,6 @@ const arr = str.split("?")[1].split("&");
             input.appendChild(btn)
             usersCurrentResult[btn.id] = "";
             
-
             numVal = Math.round(Math.random()*50)+1;
             allNumbers.push(numVal.toString())
             num = document.createElement("span");
