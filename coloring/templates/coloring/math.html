@@ -7,6 +7,10 @@
 <html>
 <!-- Button toggle https://stackoverflow.com/questions/38377062/how-to-make-html-button-look-pressed-in-using-css/38377286 -->
 <style>
+html, body { margin:0; padding:0; overflow:hidden }
+
+svg { position:fixed; top:0; bottom:0; left:0; right:0 }
+
  button[name="input"]{
     position: absolute;
     width: 45px;
@@ -470,9 +474,6 @@ const arr = str.split("?")[1].split("&");
         total = total + 1;
         input.appendChild(btn)
         usersCurrentResult[btn.id] = "";
-        g = document.createElement("g");
-        g.appendChild(input);
-        svg = document.getElementById("canvas");
         //Adds a number
         var numVal = Math.round(Math.random()*50)+1;
         allNumbers.push(numVal.toString())
@@ -644,9 +645,7 @@ const arr = str.split("?")[1].split("&");
         input.appendChild(num);
         usersCurrentResult[num.id] = numVal.toString();
         //Loop to add the remaining buttons and numbers
-        g = document.createElement("g");
-        g.appendChild(input);
-        svg = document.getElementById("canvas");
+
         for (i = 0; i < conditions["difficulty"]; i++) {
             btn = document.createElement("button");
             btn.id = "slot" + total;
