@@ -90,8 +90,7 @@ span {
 }
 
 #inputs {
-    y: 295px;
-    height: 116px;
+    height: 460px;
     display: flex;
     align-items: center;
     text-align: center;
@@ -478,7 +477,6 @@ const arr = str.split("?")[1].split("&");
         var numVal = Math.round(Math.random()*50)+1;
         allNumbers.push(numVal.toString())
         var num = document.createElement("span");
-        num.setAttribute("top", "220px");
         num.id = "slot" + total;
         total = total + 1;
         // num.style.fontSize = "large"
@@ -637,7 +635,6 @@ const arr = str.split("?")[1].split("&");
         currentNumber = currentNumber + 1;
         allNumbers.push(numVal.toString())
         var num = document.createElement("span");
-        num.setAttribute("top", "220px");
         num.id = "slot" + total;
         total = total + 1;
         //num.style.height = "25px";
