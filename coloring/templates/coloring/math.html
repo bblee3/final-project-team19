@@ -470,6 +470,9 @@ const arr = str.split("?")[1].split("&");
         total = total + 1;
         input.appendChild(btn)
         usersCurrentResult[btn.id] = "";
+        g = document.createElement("g");
+        g.appendChild(input);
+        svg = document.getElementById("canvas");
         //Adds a number
         var numVal = Math.round(Math.random()*50)+1;
         allNumbers.push(numVal.toString())
