@@ -122,7 +122,7 @@ span {
     </g>
     <!--Exit Button-->
     <g filter="url(#filter17_d)">
-        <rect x="49" y="58" width="195" height="89" rx="25" fill="#BC9BDE"/>
+        <rect x="49" y="58" width="195" height="89" rx="25" fill="#BC9BDE" onclick = "exit()"/>
         <text x="89" y="130" font-family = "Itim" font-style = "normal" font-weight = "normal" font-size = "72px" line-height = "115px" display = "flex" align-items = "center" text-align = "center"  fill = "white" onclick = "exit()"> Exit </text>
     </g>
 
@@ -872,9 +872,9 @@ function outOfTime() {
         allOperators[i].onclick = null;
     }
 }
-
+//Exit to settings page
 function exit() {
-    location.href="http://localhost:8000/math4un/settings/"
+    location.href="http://localhost:8000/math4un/settings/";
 }
 </script>
 
