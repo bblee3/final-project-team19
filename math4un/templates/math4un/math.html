@@ -765,6 +765,14 @@ function clickOperator(clicked) {
             currentButton.style.background = "#F7D78C";
             usersCurrentResult[currentButton.id] = this.id;
         }
+        else if (this.id == "(") {
+            currentButton.style.background = "#ABBCFA";
+            usersCurrentResult[currentButton.id] = this.id;
+        }
+        else if (this.id == ")") {
+            currentButton.style.background = "#FF8A8A";
+            usersCurrentResult[currentButton.id] = this.id;
+        }
         currentButton = null;
     }
 }
