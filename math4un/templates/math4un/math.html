@@ -435,6 +435,8 @@ const arr = str.split("?")[1].split("&");
             // When time runs out
             if (numeralMinutes == 0 & numeralSeconds == 0) {
                 clearInterval(interval);
+                outOfTime();
+
             }
             // Update numeral variables
             else if (numeralSeconds == 0) {
@@ -839,6 +841,17 @@ for (i = 0; i < allOperators.length; i++) {
     allOperators[i].onclick = clickOperator;
 }
 
+function outOfTime() {
+    alert("Out of time!")
+    var allButtons = document.getElementsByName("input");
+    for (i = 0; i < allButtons.length; i++) {
+        allButtons[i].onmousedown = null;
+    }
+    var allOperators = document.getElementsByName("operator");
+    for (i = 0; i < allOperators.length; i++) {
+        allOperators[i].onclick = null;
+    }
+}
 </script>
 
 
