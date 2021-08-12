@@ -126,9 +126,9 @@ span {
     <!-- timer -->
     <g>
     <rect x="1101" y="58" width="261" height="136" rx="40" fill="#F7A7CD"/>
-    <text name = "input" id = "Minutes" x="1170" y="150" dominant-basline="middle" text-anchor="middle" fill="white" font-size="80">0</text>
-    <text name = "input" id = "colon" x="1220" y="150" fill="white" dominant-basline="middle" text-anchor="middle" fill="white" font-size="80">:</text>
-    <text name = "input" id = "Seconds" x="1280" y="150" fill="white" dominant-basline="middle" text-anchor="middle" fill="white" font-size="80">00</text> 
+    <text name = "input" id = "Minutes" x="1170" y="150" dominant-basline="middle" text-anchor="middle" fill="white" font-size="80" font-family="Itim">0</text>
+    <text name = "input" id = "colon" x="1220" y="150" fill="white" dominant-basline="middle" text-anchor="middle" fill="white" font-size="80" font-family="Itim">:</text>
+    <text name = "input" id = "Seconds" x="1280" y="150" fill="white" dominant-basline="middle" text-anchor="middle" fill="white" font-size="80" font-family="Itim">00</text> 
 </g>
     <!-- plus -->
     <g filter="url(#filter9_d)" >
@@ -412,8 +412,8 @@ const arr = str.split("?")[1].split("&");
     }
     // If the user sets infinity as condition
     if (conditions["option"] == "infinity") {
-        minute.textContent = "∞";
-        colon.textContent = "";
+        minute.textContent = "";
+        colon.textContent = "∞";
         second.textContent = "";
         minute.style.left = "100px"
     }
