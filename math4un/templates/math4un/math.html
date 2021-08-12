@@ -366,15 +366,14 @@ span {
 <!-- <div id="inputs" style="justify-content: center;">
 
 </div> -->
-<div style = "position: relative;" id = "inputsParent">
-    <div id="inputs" style = "position: absolute;">
+<div style = "top: 90px; height: 290px; position: relative;" id = "inputsParent">
+    <div id="inputs" style = "top: 30%; position: absolute;">
         </div>
 </body>
 <script>
 var screenWidth = screen.width;
 var screenHeight = screen.height;
 document.getElementById("inputsParent").style.width = screenWidth + "px"
-document.getElementById("inputsParent").style.height = screenHeight/3 + "px"
 const str = window.location.href.toString();
 
 const arr = str.split("?")[1].split("&");
