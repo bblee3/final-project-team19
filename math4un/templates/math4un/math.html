@@ -748,17 +748,21 @@ function clickOperator(clicked) {
     console.log(this.id)
     if (currentButton != null) {
         currentButton.textContent = this.id;
+        currentButton.style.color = "white";
         if (this.id == "x") {
-            currentButton.style.color = "#FF748F";
+            currentButton.style.background = "#8FCA73";
             usersCurrentResult[currentButton.id] = "*";
-            //currentButton.style.background = "#FF748F";
         }
         else if (this.id == "÷") {
-            currentButton.style.background = "#58ADE7";
-            currentButton.style.color = "white";
+            currentButton.style.background = "#58ADE7";            
             usersCurrentResult[currentButton.id] = "/"
         }
-        else {
+        else if (this.id == "+") {
+            currentButton.style.background = "#FF748F";
+            usersCurrentResult[currentButton.id] = this.id;
+        }
+        else if (this.id == "-") {
+            currentButton.style.background = "#F7D78C";
             usersCurrentResult[currentButton.id] = this.id;
         }
         currentButton = null;
