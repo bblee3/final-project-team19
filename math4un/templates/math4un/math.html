@@ -126,9 +126,9 @@ span {
     <!-- timer -->
     <g>
     <rect x="1101" y="58" width="261" height="136" rx="40" fill="#F7A7CD"/>
-    <text name = "input" id = "Minutes" x="1175" y="150" dominant-basline="middle" text-anchor="middle" fill="white" font-size="80">0</text>
-    <text name = "input" id = "colon" x="1210" y="150" fill="white" dominant-basline="middle" text-anchor="middle" fill="white" font-size="80">:</text>
-    <text name = "input" id = "Seconds" x="1270" y="150" fill="white" dominant-basline="middle" text-anchor="middle" fill="white" font-size="80">00</text> 
+    <text name = "input" id = "Minutes" x="1170" y="150" dominant-basline="middle" text-anchor="middle" fill="white" font-size="80">0</text>
+    <text name = "input" id = "colon" x="1220" y="150" fill="white" dominant-basline="middle" text-anchor="middle" fill="white" font-size="80">:</text>
+    <text name = "input" id = "Seconds" x="1280" y="150" fill="white" dominant-basline="middle" text-anchor="middle" fill="white" font-size="80">00</text> 
 </g>
     <!-- plus -->
     <g filter="url(#filter9_d)" >
@@ -423,6 +423,9 @@ const arr = str.split("?")[1].split("&");
         var numeralSeconds = conditions["seconds"]
         var displayedMinutes = conditions["minutes"].toString()
         var displayedSeconds = conditions["seconds"].toString()
+        if (numeralMinutes < 10) {
+            displayedMinutes = "0" + displayedMinutes
+        }
         if (numeralSeconds < 10) {
             displayedSeconds = "0" + displayedSeconds 
         }
@@ -444,6 +447,9 @@ const arr = str.split("?")[1].split("&");
             // Update displayed variables
             displayedMinutes = numeralMinutes.toString()
             displayedSeconds = numeralSeconds.toString()
+            if (numeralMinutes < 10) {
+                displayedMinutes = "0" + displayedMinutes
+            }   
             if (numeralSeconds < 10) {
                 displayedSeconds = "0" + displayedSeconds 
             }   
@@ -694,6 +700,19 @@ const arr = str.split("?")[1].split("&");
         res.textContent = conditions["target"];
         document.getElementById("result").appendChild(res)
 }
+var equals = document.createElement("span")
+equals.style.left = (prevLoc + 40).toString() + "px"
+equals.id = "equals"
+equals.innerText = "";
+var num = document.createElement("span")
+num.style.left = (prevLoc + 91).toString() + "px"
+num.id = "checkedResult"
+num.style.textAlign = "left"
+num.style.alignItems = "left"
+num.style.position = "absolute"
+num.innerText = "";
+input.appendChild(num)
+input.appendChild(equals)
 //currentButton will be the input the user clicked
 var currentButton = null;
 
@@ -740,7 +759,12 @@ function currentVal() {
         val = val + cur
     }
     try {
-        document.getElementById("checkedResult").textContent = "Current result: " + eval(val);
+        var num = document.getElementById("checkedResult")
+        console.log(eval(val).toString())
+        num.innerText = eval(val).toString();
+        num.style.width = (20 + 23 * (eval(val).toString().length - 1)).toString() + "px"
+        document.getElementById("equals").innerText = "="
+        // document.getElementById("checkedResult").textContent = "Current result: " 
     } catch(e) {
         if (e instanceof SyntaxError) {
             alert("Please make sure there are no operational mistakes")
@@ -769,7 +793,7 @@ function answer() {
     }
     try {
         if (eval(val) == eval(currentValue)) {
-            location.href='http://localhost:8000/coloring/correct/?' + str.split("?")[1];
+            location.href='http://localhost:8000/math4un/correct/?' + str.split("?")[1];
         }
         else {
             var numString = allNumbers[0].toString();
@@ -777,10 +801,10 @@ function answer() {
                 numString = numString + "/" + allNumbers[i]
             }
             if (arr.length == 4) {
-                location.href='http://localhost:8000/coloring/incorrect/?'+ str.split("?")[1] + "&target=" + eval(currentValue) + "&num=" +numString;
+                location.href='http://localhost:8000/math4un/incorrect/?'+ str.split("?")[1] + "&target=" + eval(currentValue) + "&num=" +numString;
             }
             else {
-                location.href='http://localhost:8000/coloring/incorrect/?'+ str.split("?")[1]
+                location.href='http://localhost:8000/math4un/incorrect/?'+ str.split("?")[1]
             }
         }
         document.getElementById("checkedResult").textContent = "Current result: " + eval(val);
@@ -822,5 +846,5 @@ for (i = 0; i < allOperators.length; i++) {
 <!-- <button onclick = answer()>
     Verify
 </button> -->
-<p id = checkedResult> </p>
+<!-- <p id = checkedResult> </p> -->
 </html>

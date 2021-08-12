@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'coloring.apps.ColoringConfig',
+    'math4un.apps.math4unConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
