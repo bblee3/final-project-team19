@@ -22,8 +22,9 @@ svg { position:fixed; top:0; bottom:0; left:0; right:0 }
     border: none;
 
     font-size: xx-large;
-        text-align: center;
-        padding: 2px;
+    text-align: center;
+    padding: 2px;
+    font-family: Itim;
  }
     
   button[name="input"]:focus {
@@ -749,6 +750,7 @@ function clickOperator(clicked) {
     if (currentButton != null) {
         currentButton.textContent = this.id;
         currentButton.style.color = "white";
+        currentButton.style.
         if (this.id == "x") {
             currentButton.style.background = "#8FCA73";
             usersCurrentResult[currentButton.id] = "*";
