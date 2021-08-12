@@ -749,7 +749,7 @@ function clickOperator(clicked) {
     console.log(this.id)
     if (currentButton != null) {
         currentButton.textContent = this.id;
-        currentButton.textContent.setAttribute("color", "#A6D3F2");
+        currentButton.textContent.setAttribute("style", "color: #A6D3F2");
         if (this.id == "x") {
             usersCurrentResult[currentButton.id] = "*"
         }
