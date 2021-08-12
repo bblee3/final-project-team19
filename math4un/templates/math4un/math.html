@@ -701,11 +701,13 @@ const arr = str.split("?")[1].split("&");
         document.getElementById("result").appendChild(res)
 }
 var equals = document.createElement("span")
-equals.style.left = (prevLoc + 40).toString() + "px"
+equals.style.left = screenWidth - (0.80 * screenWidth) + "px";
 equals.id = "equals"
 equals.innerText = "";
+equals.style.top= "60%"
 var num = document.createElement("span")
-num.style.left = (prevLoc + 91).toString() + "px"
+num.style.top= "60%"
+num.style.left = screenWidth - (0.80 * screenWidth) + 51 + "px";
 num.id = "checkedResult"
 num.style.textAlign = "left"
 num.style.alignItems = "left"
@@ -762,7 +764,12 @@ function currentVal() {
         var num = document.getElementById("checkedResult")
         console.log(eval(val).toString())
         num.innerText = eval(val).toString();
-        num.style.width = (20 + 23 * (eval(val).toString().length - 1)).toString() + "px"
+        wid = (20 + 23 * (eval(val).toString().length - 1)).toString()
+        if (Math.round(wid) - wid != 0) {
+            wid = wid + 34
+        }
+        num.style.width = wid + "px"
+        
         document.getElementById("equals").innerText = "="
         // document.getElementById("checkedResult").textContent = "Current result: " 
     } catch(e) {
