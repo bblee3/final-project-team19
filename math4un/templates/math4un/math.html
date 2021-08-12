@@ -415,7 +415,8 @@ const arr = str.split("?")[1].split("&");
         minute.textContent = "";
         colon.textContent = "∞";
         second.textContent = "";
-        minute.style.left = "100px"
+        colon.style.left = "100px";
+        colon.setAttribute("font-family", "Itim");
     }
     // if user sets time as condition
     else {
