@@ -749,6 +749,7 @@ function clickOperator(clicked) {
     if (currentButton != null) {
         currentButton.textContent = this.id;
         if (this.id == "x") {
+            currentButton.style.color = "#FF748F";
             usersCurrentResult[currentButton.id] = "*";
             currentButton.style.color = "#FF748F";
             //currentButton.style.background = "#FF748F";
